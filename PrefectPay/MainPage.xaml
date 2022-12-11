@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrefectPay.MainPage">
+
+    <Grid BackgroundColor="#323232" RowSpacing="30" RowDefinitions="200,*" Padding="10">
+        <Frame BackgroundColor="#444346" Grid.Row="0">
+            <Grid RowDefinitions="20,*">
+                <Label Grid.Row="0" Text="TOTAL P/PERSON" TextColor="#79bbc1" HorizontalTextAlignment="Start" FontSize="16"/>
+                <FlexLayout Direction="Row" JustifyContent="SpaceAround" Grid.Row="1"  >
+
+                    <Label x:Name="lblTotal" Text="$0.00" TextColor="white" VerticalTextAlignment="Center" FontSize="30"/>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Grid.Row="0" Text="TOTAL" TextColor="#FFF" FontSize="Caption"/>
+                        <Label x:Name="lblSubTotal" Grid.Row="0" Text="$0.00" TextColor="#fff"  FontSize="Caption"/>
+
+                        <Label Grid.Row="0" Text="TOTAL TIP" TextColor="#FFF" FontSize="Caption" Margin="0,15,0,0"/>
+                        <Label x:Name="lblTotalTip" Grid.Row="0" Text="$0.00" TextColor="#fff"  FontSize="Caption"/>
+                    </VerticalStackLayout>
+                </FlexLayout>
+            </Grid>
+        </Frame>
+        <Frame BackgroundColor="#323232" Grid.Row="1">
+            <Grid RowDefinitions="0.25*,0.25*,0.25*,0.25*">
+                <Grid Grid.Row="0" ColumnDefinitions="auto,*">
+                    <Label Grid.Column="0" Text="Enter your bill : $" VerticalOptions="Center" TextColor="#fff"></Label>
+                    <Entry x:Name="etnryBill" Completed="etnryBill_Completed" Grid.Column="1" Placeholder="0.0" PlaceholderColor="#fff" Keyboard="Numeric" TextColor="#d6d6d6" BackgroundColor="#444346" HeightRequest="40" />
+                </Grid>
+                <Grid Grid.Row="1" ColumnDefinitions="auto,*" >
+                    <Label Grid.Column="0" Text="Choose your tip" VerticalOptions="Center" TextColor="#fff" Margin="0,0,10,0"></Label>
+                    <HorizontalStackLayout Grid.Column="1" HeightRequest="50" Spacing="10">
+                        <Button Text="10%" x:Name="btn10PrecentTip" Clicked="btn10PrecentTip_Clicked"></Button>
+                        <Button Text="15%" x:Name="btn15PrecentTip" Clicked="btn15PrecentTip_Clicked"></Button>
+                        <Button Text="20%" x:Name="btn20PrecentTip" Clicked="btn20PrecentTip_Clicked"></Button>
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid Grid.Row="2" ColumnDefinitions="auto,*" >
+                    <Label x:Name="lblTip" Grid.Column="0" Text="Tip : 0%" VerticalOptions="Center" TextColor="#fff" Margin="0,0,10,0"></Label>
+                    <Slider Grid.Column="1" x:Name="sliderTip"
+                        Maximum="1"
+                        Minimum="0"
+                            ValueChanged="sliderTip_ValueChanged"/>
+                </Grid>
+                <Grid Grid.Row="3" ColumnDefinitions="auto,*" >
+                    <Label Grid.Column="0" Text="Split the total" VerticalOptions="Center" TextColor="#fff" Margin="0,0,10,0"></Label>
+                    <HorizontalStackLayout Grid.Column="1" HeightRequest="50">
+                        <Button x:Name="btnDecreaseCount" Clicked="btnDecreaseCount_Clicked" CornerRadius="0" Text="-"></Button>
+                        <Label x:Name="lblCount" Text="0" VerticalTextAlignment="Center" TextColor="White" Padding="30,10" BackgroundColor="#444346"></Label>
+                        <Button x:Name="btnIncreaseCount" Clicked="btnIncreaseCount_Clicked" CornerRadius="0" Text="+"></Button>
+                    </HorizontalStackLayout>
+                </Grid>
+            </Grid>
+        </Frame>
+    </Grid>
+
+</ContentPage>
